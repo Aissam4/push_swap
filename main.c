@@ -6,7 +6,7 @@
 /*   By: abarchil <abarchil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 11:23:55 by abarchil          #+#    #+#             */
-/*   Updated: 2021/12/12 18:49:16 by abarchil         ###   ########.fr       */
+/*   Updated: 2021/12/13 12:40:32 by abarchil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int main(int argc, char **argv)
 	s_stack stack_a;
 	s_stack stack_b;
     if (argc == 1)
-        error_msg("Stack is empty");
+        error_msg();
 	info.size = argc - 1;
     info.array = convert_args(info.size, argv);
 	duplicate_nambers(&info);
@@ -31,12 +31,11 @@ int main(int argc, char **argv)
 	stack_b.size= info.size;
 	info.used_size = stack_a.used_size;
 	if (argc == 3)
-		sort_2(&info);
+		sort_2(&stack_a);
 	else if (argc == 4)
-		sort_3(&info);
+		sort_3(&stack_a);
 	else
 		sort_5(&stack_a, &stack_b);
-		//sort_5(&stack_a, &stack_b);
 	/*********** testing *********/
 	int i = -1;
 	printf("----------------------\n");
@@ -56,6 +55,6 @@ int main(int argc, char **argv)
 }
 
 //parsing one argument that contain multi numbers
-// sort stack that containe 5 element
+// sort stack 
 // sort stack that containe 10 element
 // sort stack that containe more than 10 element

@@ -6,12 +6,13 @@
 #    By: abarchil <abarchil@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/07 12:16:43 by abarchil          #+#    #+#              #
-#    Updated: 2021/12/11 15:01:44 by abarchil         ###   ########.fr        #
+#    Updated: 2021/12/13 12:37:32 by abarchil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC_FILE = main.c error_handling.c src/ft_memcmp.c src/ft_putstr.c src/ft_strlen.c \
-	parsing.c src/ft_atoi.c sorting.c ft_isdigit.c src/ft_memmove.c
+	parsing.c src/ft_atoi.c sorting.c ft_isdigit.c src/ft_memmove.c sorting_utils.c\
+	instructions.c
 OBJ_FILE = $(SRC_FILE:.c=.o)
 
 NAME = push_swap

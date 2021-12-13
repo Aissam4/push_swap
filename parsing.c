@@ -6,7 +6,7 @@
 /*   By: abarchil <abarchil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 16:47:16 by abarchil          #+#    #+#             */
-/*   Updated: 2021/12/10 12:56:57 by abarchil         ###   ########.fr       */
+/*   Updated: 2021/12/13 12:40:48 by abarchil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 int	int_check(char *s)
 {
-	int i = 0;
+	int	i;
+	
+	i = 0;
 	while (s[i])
 	{
 		if (s[i] == '-')
@@ -40,14 +42,14 @@ int    *convert_args(int argc, char **argv)
     {
 		if (!int_check(argv[argv_count]))
 		{
-			error_msg("No valid argument to be sort");
+			error_msg();
 			free(array);
 			exit(EXIT_FAILURE);
 		}
         test = ft_atoi(argv[argv_count]);
 		if (test > INT_MAX || test  < INT_MIN)
 		{
-			error_msg("Your numbers is very long");
+			error_msg();
 			free(array);
 			exit(EXIT_FAILURE);
 		}
@@ -91,7 +93,7 @@ void		duplicate_nambers(s_swap *stack)
 		if (check_duplicated(j, number, stack->array[i]))
 		{
 			free(stack->array);
-			error_msg("error : duplicate number");
+			error_msg();
 			exit(EXIT_FAILURE);
 		}
 		i++;
@@ -109,7 +111,7 @@ void	sorted_stack(s_swap *stack)
 		i++;
 	if (i == stack->size - 1)
 	{
-		error_msg("Stack is sorted");
+		error_msg();
 		free(stack->array);
 		exit(EXIT_FAILURE);
 	}

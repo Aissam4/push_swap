@@ -6,16 +6,14 @@
 /*   By: abarchil <abarchil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 11:52:38 by abarchil          #+#    #+#             */
-/*   Updated: 2021/12/09 13:12:54 by abarchil         ###   ########.fr       */
+/*   Updated: 2021/12/13 12:45:22 by abarchil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	error_msg(char *s)
+void	error_msg(void)
 {
-	ft_putstr("\033[0;31m");
-	ft_putstr(s);
+	ft_putstr("\033[0;31mERROR \n");
     exit(EXIT_FAILURE);
-
 }

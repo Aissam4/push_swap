@@ -6,7 +6,7 @@
 /*   By: abarchil <abarchil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 11:23:50 by abarchil          #+#    #+#             */
-/*   Updated: 2021/12/12 15:55:36 by abarchil         ###   ########.fr       */
+/*   Updated: 2021/12/13 12:39:52 by abarchil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,30 +34,33 @@ typedef struct t_stack
 }   s_stack;
 
 /********* LIBFT **********/
-size_t	ft_strlen(const char *s);
-int		ft_isdigit(int c);
-void	ft_putstr(char *s);
-int		ft_memcmp(const void *s1, const void *s2, size_t n);
-void	*ft_memmove(void *dest, const void *src, size_t n);
+size_t			ft_strlen(const char *s);
+int				ft_isdigit(int c);
+void			ft_putstr(char *s);
+int				ft_memcmp(const void *s1, const void *s2, size_t n);
+void			*ft_memmove(void *dest, const void *src, size_t n);
 long long int	ft_atoi(const char *str);
 /********* ERRORS **********/
-void    error_msg(char *s);
+void    error_msg(void);
 /********* PARSING *********/
 void	sorted_stack(s_swap *stack);
+int		ft_issorted(s_stack *stack);
 int		check_duplicated(int size, int *array, int number);
 void	duplicate_nambers(s_swap *stack);
 int    *convert_args(int argc, char **argv);
 /********* SORTING **********/
-void	sort_2(s_swap *sorting);
-void	sort_3(s_swap *sorting);
-void	sort_5(s_stack *a, s_stack *b);
-void	swap(s_swap *swap);
-void	rotate(s_swap *rotate);
-void	reverse_rotate(s_swap *reverse_rotate);
-int		min_value(int	*array, int size);
+void	sort_2(s_stack *stack);
+void	sort_3(s_stack *stack);
+void	sort_5(s_stack *stack, s_stack *b);
+void	swap(s_stack *stack);
+void	rotate(s_stack *stack);
+void	reverse_rotate(s_stack *stack);
+int		min_value(s_stack *stack);
+void	find_smallest_number(s_stack *stack);
 /********* PUSH & PULL *******/
-void	push_stack(s_stack *stack);
 void	push_b(s_stack *a, s_stack *b);
 void	push_a(s_stack *a, s_stack *b);
-void	pull_stack(s_stack *stack);
+void	push_stack(s_stack *stack);
+void	pop_stack(s_stack *stack);
+
 #endif
