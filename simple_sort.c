@@ -6,7 +6,7 @@
 /*   By: abarchil <abarchil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 21:06:04 by abarchil          #+#    #+#             */
-/*   Updated: 2021/12/15 00:29:45 by abarchil         ###   ########.fr       */
+/*   Updated: 2021/12/15 12:18:06 by abarchil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,12 +67,12 @@ void	push_to_top(s_stack *stack, int index)
 	{
 		if (index <= stack->used_size / 2)
 		{
-			rotate(stack);
+			rotate_a(stack);
 			index--;
 		}
 		else
 		{
-			reverse_rotate(stack);
+			reverse_rotate_a(stack);
 			index++;
 			if (index == stack->used_size)
 				break ;

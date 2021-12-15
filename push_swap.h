@@ -6,7 +6,7 @@
 /*   By: abarchil <abarchil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 11:23:50 by abarchil          #+#    #+#             */
-/*   Updated: 2021/12/15 06:09:04 by abarchil         ###   ########.fr       */
+/*   Updated: 2021/12/15 12:17:41 by abarchil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,9 @@ void	sort_remainder_2(s_stack *a, s_stack *b);
 void	sort_remainder(s_stack *a, s_stack *b);
 /******** SORTING UTILS *****/
 void	swap(s_stack *stack);
-void	rotate(s_stack *stack);
+void	rotate_a(s_stack *stack);
 void	rotate_b(s_stack *b);
-void	reverse_rotate(s_stack *stack);
+void	reverse_rotate_a(s_stack *stack);
 void	reverse_rotate_b(s_stack *b);
 int		min_value(s_stack *stack);
 int		max_value(s_stack *stack);

@@ -6,7 +6,7 @@
 /*   By: abarchil <abarchil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 11:23:55 by abarchil          #+#    #+#             */
-/*   Updated: 2021/12/15 06:21:43 by abarchil         ###   ########.fr       */
+/*   Updated: 2021/12/15 12:22:41 by abarchil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,12 @@ int main(int argc, char **argv)
 
 //parsing one argument that contain multi numbers
 // remove sorting 100 element algorithm
+// leaks
 // finish the project
 // norminette
 // optimize code
 // finish*******
+
+
+
+//sa | sb

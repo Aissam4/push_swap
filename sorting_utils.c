@@ -6,7 +6,7 @@
 /*   By: abarchil <abarchil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 12:28:47 by abarchil          #+#    #+#             */
-/*   Updated: 2021/12/15 01:46:43 by abarchil         ###   ########.fr       */
+/*   Updated: 2021/12/15 12:18:26 by abarchil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,9 @@ void	find_smallest_number(s_stack *stack, int i)
 	while (s_index != 0)
 	{
 		if (s_index <= i)
-			rotate(stack);
+			rotate_a(stack);
 		else
-			reverse_rotate(stack);
+			reverse_rotate_a(stack);
 		s_index = min_value(stack);
 	}
 }

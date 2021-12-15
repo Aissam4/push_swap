@@ -6,7 +6,7 @@
 /*   By: abarchil <abarchil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 23:44:54 by abarchil          #+#    #+#             */
-/*   Updated: 2021/12/15 06:19:45 by abarchil         ###   ########.fr       */
+/*   Updated: 2021/12/15 12:18:45 by abarchil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,17 @@ void		sort_3(s_stack *stack)
 	else if (stack->array[0] > stack->array[1] && stack->array[1] > stack->array[2])
 	{
 		swap(stack);
-		reverse_rotate(stack);
+		reverse_rotate_a(stack);
 	}
 	else if(stack->array[0] > stack->array[1] && stack->array[0] > stack->array[2] && stack->array[1] < stack->array[2])
-		rotate(stack);
+		rotate_a(stack);
 	else if (stack->array[0] < stack->array[1] && stack->array[1] > stack->array[2] && stack->array[0] < stack->array[2])
 	{
 		swap(stack);
-		rotate(stack);
+		rotate_a(stack);
 	}
 	else if (stack->array[0] < stack->array[1] && stack->array[1] > stack->array[2] && stack->array[0] > stack->array[2])
-		reverse_rotate(stack);
+		reverse_rotate_a(stack);
 }
 
 void	sort_5(s_stack *stack, s_stack *b)

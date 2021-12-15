@@ -6,11 +6,11 @@
 /*   By: abarchil <abarchil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/04 21:51:26 by abarchil          #+#    #+#             */
-/*   Updated: 2021/12/13 18:36:27 by abarchil         ###   ########.fr       */
+/*   Updated: 2021/12/15 12:19:51 by abarchil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	ft_isdigit(int c)
 {
