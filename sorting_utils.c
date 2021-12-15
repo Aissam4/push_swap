@@ -6,7 +6,7 @@
 /*   By: abarchil <abarchil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 12:28:47 by abarchil          #+#    #+#             */
-/*   Updated: 2021/12/13 12:35:49 by abarchil         ###   ########.fr       */
+/*   Updated: 2021/12/15 01:46:43 by abarchil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ void	push_stack(s_stack *stack)
 {
 	int 	used_size;
 
-	used_size = stack->used_size;
+	used_size = stack->used_size - 1;
+	// -1
 	while (used_size > 0)
 	{
 		stack->array[used_size] = stack->array[used_size - 1];
@@ -30,7 +31,7 @@ void	pop_stack(s_stack *stack)
 	int	used_size;
 
 	i = 0;
-	used_size = stack->used_size;
+	used_size = stack->used_size - 1;
 	while (i < used_size)
 	{
 		stack->array[i] = stack->array[i + 1];
@@ -54,14 +55,14 @@ int		min_value(s_stack *stack)
 	return (s_index);
 }
 
-void	find_smallest_number(s_stack *stack)
+void	find_smallest_number(s_stack *stack, int i)
 {
 	int	s_index;
 
 	s_index = min_value(stack);
 	while (s_index != 0)
 	{
-		if (s_index <= 2)
+		if (s_index <= i)
 			rotate(stack);
 		else
 			reverse_rotate(stack);

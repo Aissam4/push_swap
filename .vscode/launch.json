@@ -5,17 +5,12 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
-			"name": "clang - Build and debug active file",
-			"type": "cppdbg",
+			"type": "lldb",
 			"request": "launch",
-			"program": "${fileDirname}/${fileBasenameNoExtension}",
-			"args": ["52", "4", "8", "7", "53"],
-			"stopAtEntry": false,
-			"cwd": "${fileDirname}",
-			"environment": [],
-			"externalConsole": false,
-			"MIMode": "lldb",
-			"preLaunchTask": "C/C++: clang build active file"
+			"name": "Debug",
+			"program": "${workspaceFolder}/a.out",
+			"args": ["0", "5", "-77", "10", "15", "-777", "890", "500", "-771", "-987", "-8874", "-897001", "3", "4"],
+			"cwd": "${workspaceFolder}"
 		}
 	]
 }
