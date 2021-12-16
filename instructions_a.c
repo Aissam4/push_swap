@@ -6,7 +6,7 @@
 /*   By: abarchil <abarchil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 12:31:43 by abarchil          #+#    #+#             */
-/*   Updated: 2021/12/15 12:17:27 by abarchil         ###   ########.fr       */
+/*   Updated: 2021/12/15 15:22:08 by abarchil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void	push_a(s_stack *a, s_stack *b)
 	i = 0;
 	used_size_b = b->used_size;
 	used_size_a = a->used_size;
+	ft_putstr("pa\n");
 	if (used_size_b == 0)
 		return ;
 	if (used_size_a == 0)
@@ -65,5 +66,4 @@ void	push_a(s_stack *a, s_stack *b)
 	pop_stack(b);
 	a->used_size++;
 	b->used_size--;
-	ft_putstr("pa\n");
 }

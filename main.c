@@ -6,7 +6,7 @@
 /*   By: abarchil <abarchil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 11:23:55 by abarchil          #+#    #+#             */
-/*   Updated: 2021/12/15 12:22:41 by abarchil         ###   ########.fr       */
+/*   Updated: 2021/12/15 22:49:58 by abarchil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,18 @@ int main(int argc, char **argv)
 	duplicate_nambers(&info);
 	sorted_stack(&info);
 	stack_init(&info, &stack_a, &stack_b);
-	if (argc == 3)
+	if (stack_a.size == 2)
 		sort_2(&stack_a);
-	else if (argc == 4)
+	else if (stack_a.size == 3)
 		sort_3(&stack_a);
-	else if (argc == 6 || argc == 5)
+	else if (stack_a.size == 4 || stack_a.size == 5)
 		sort_5(&stack_a, &stack_b);
-	else if (argc > 6  && argc <= 11)
+	else if (stack_a.size > 5 && stack_a.size <= 10)
 		sort_10(&stack_a, &stack_b);
-	// else if (stack_a.size > 10 && stack_a.size <= 100)
+	else if (stack_a.size > 10)
+		sort_100(&stack_a, &stack_b);
+	// else if (stack_a.size > 100)
 	// 	sort_100(&stack_a, &stack_b);
-	else
-		sort_500(&stack_a, &stack_b);
 	/*********** testing *********/
 	// int i = -1;
 	// printf("----------------------\n");
@@ -71,5 +71,5 @@ int main(int argc, char **argv)
 // finish*******
 
 
-
+// middle chunk
 //sa | sb

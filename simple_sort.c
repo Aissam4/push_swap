@@ -6,7 +6,7 @@
 /*   By: abarchil <abarchil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 21:06:04 by abarchil          #+#    #+#             */
-/*   Updated: 2021/12/15 12:18:06 by abarchil         ###   ########.fr       */
+/*   Updated: 2021/12/15 15:29:11 by abarchil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,6 @@ void	swap_ptr(int *a, int *b)
 	tmp = *a;
 	*a = *b;
 	*b = tmp;
-}
-
-int	search_for_index(s_stack *stack, int key)
-{
-	int	i;
-	
-	i = 0;
-	while (i < stack->used_size)
-	{
-		if (stack->array[i] <= key)
-			return (i);
-		i++;
-	}
-	return (-1);
 }
 
 int		*simple_sort(s_stack *stack)
@@ -61,11 +47,28 @@ int		*simple_sort(s_stack *stack)
 	return (sorted);
 }
 
+int	search_for_index(s_stack *stack, int key)
+{
+	int	i;
+	
+	i = 0;
+	while (i < stack->used_size)
+	{
+		if (stack->array[i] <= key)
+			return (i);
+		i++;
+	}
+	return (-1);
+}
+
 void	push_to_top(s_stack *stack, int index)
 {
+	int div;
+
+	div = stack->used_size / 2;
 	while (index != 0)
 	{
-		if (index <= stack->used_size / 2)
+		if (index <= div)
 		{
 			rotate_a(stack);
 			index--;
@@ -92,35 +95,3 @@ void	find_index_push(s_stack *a, s_stack *b, int key)
 		index = search_for_index(a, key);
 	}
 }
-
-int		max_value(s_stack *stack)
-{
-	int	i;
-	int	index;
-
-	i = 0;
-	index = i;
-	while (i < stack->used_size)
-	{
-		if (stack->array[index] < stack->array[i])
-			index = i;
-		i++;
-	}
-	return (index);
-}
-
-void	find_max_value(s_stack *stack)
-{
-	int	index;
-
-	index = max_value(stack);
-	while (index != 0)
-	{
-		if (index <= (stack->used_size / 2))
-			rotate_b(stack);
-		else
-			reverse_rotate_b(stack);
-		index = max_value(stack);
-	}
-}
-

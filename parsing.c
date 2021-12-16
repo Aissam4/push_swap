@@ -6,7 +6,7 @@
 /*   By: abarchil <abarchil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 16:47:16 by abarchil          #+#    #+#             */
-/*   Updated: 2021/12/13 14:40:00 by abarchil         ###   ########.fr       */
+/*   Updated: 2021/12/15 13:48:03 by abarchil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,8 +92,8 @@ void		duplicate_nambers(s_swap *stack)
 		j++;
 		if (check_duplicated(j, number, stack->array[i]))
 		{
-			// free(stack->array);
-			// free(stack);
+			free(stack->array);
+			free(stack);
 			error_msg();
 			exit(EXIT_FAILURE);
 		}
@@ -112,7 +112,6 @@ void	sorted_stack(s_swap *stack)
 		i++;
 	if (i == stack->size - 1)
 	{
-		error_msg();
 		// free(stack->array);
 		// free(stack);
 		exit(EXIT_FAILURE);

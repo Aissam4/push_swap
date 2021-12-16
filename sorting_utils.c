@@ -6,7 +6,7 @@
 /*   By: abarchil <abarchil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 12:28:47 by abarchil          #+#    #+#             */
-/*   Updated: 2021/12/15 12:18:26 by abarchil         ###   ########.fr       */
+/*   Updated: 2021/12/15 15:39:54 by abarchil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@ void	push_stack(s_stack *stack)
 {
 	int 	used_size;
 
-	used_size = stack->used_size - 1;
-	// -1
+	used_size = stack->used_size;
 	while (used_size > 0)
 	{
 		stack->array[used_size] = stack->array[used_size - 1];
@@ -77,7 +76,7 @@ int	ft_issorted(s_stack *stack)
 
 	i = 0;
 	tmp = stack->array;
-	while (i < stack->used_size - 1)
+	while (i < stack->used_size -1)
 	{
 		if (tmp[i] > tmp[i + 1])
 			return (0);

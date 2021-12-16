@@ -1,26 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_init.c                                       :+:      :+:    :+:   */
+/*   simple_sort_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarchil <abarchil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/13 13:02:03 by abarchil          #+#    #+#             */
-/*   Updated: 2021/12/15 13:47:26 by abarchil         ###   ########.fr       */
+/*   Created: 2021/12/15 13:26:47 by abarchil          #+#    #+#             */
+/*   Updated: 2021/12/15 13:28:10 by abarchil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	stack_init(s_swap *info, s_stack *stack_a, s_stack *stack_b)
+int		max_value(s_stack *stack)
 {
-	stack_a->array = info->array;
-	stack_a->size = info->size;
-	stack_a->used_size = info->size;
-	stack_b->used_size = 0;
-	stack_b->array = (int *)malloc(sizeof(int) * info->size);
-	stack_b->size = info->size;
-	info->used_size = stack_a->used_size;
-	//free(info->array);
-	//free(info);
+	int	i;
+	int	index;
+
+	i = 0;
+	index = i;
+	while (i < stack->used_size)
+	{
+		if (stack->array[index] < stack->array[i])
+			index = i;
+		i++;
+	}
+	return (index);
+}
+
+void	find_max_value(s_stack *stack)
+{
+	int	index;
+
+	index = max_value(stack);
+	while (index != 0)
+	{
+		if (index <= (stack->used_size / 2))
+			rotate_b(stack);
+		else
+			reverse_rotate_b(stack);
+		index = max_value(stack);
+	}
 }
