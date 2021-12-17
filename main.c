@@ -6,24 +6,65 @@
 /*   By: abarchil <abarchil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 11:23:55 by abarchil          #+#    #+#             */
-/*   Updated: 2021/12/15 22:49:58 by abarchil         ###   ########.fr       */
+/*   Updated: 2021/12/17 15:17:55 by abarchil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int main(int argc, char **argv)
+
+char	**stacks_init(char *string, s_stack *a, s_stack *b)
 {
-    s_swap info;
-	s_stack stack_a;
-	s_stack stack_b;
-    if (argc == 1)
+	int		size;
+	char	**numbers;
+
+	numbers = ft_split(string, ' ');
+	size = ft_count_numbers(string);
+	a->array = (int *)malloc(sizeof(int) * size);
+	b->array = (int *)malloc(sizeof(int) * size);
+	a->size = size;
+	b->size = size;
+	a->used_size = 0;
+	b->used_size = 0;
+	free (string);
+	return (numbers);
+}
+
+void	ft_store_numbers(char *string, s_stack *a, s_stack *b)
+{
+	char		**numbers;
+	long long	number;
+	int			i;
+
+	i = 0;
+	numbers = stacks_init(string, a, b);
+	while (numbers[i])
+	{
+		if (!ft_isnumber(numbers[i]))
+			error_msg();
+		number = ft_atoi(numbers[i]);
+		if (number < -2147483648 || number > 2147483647)
+			error_msg();
+		a->array[i] = number;
+		a->used_size++;
+		free(numbers[i]);
+		i++;
+	}
+	duplicate_nambers(a);
+	free(numbers);
+}
+
+int	main(int argc, char **argv)
+{
+    s_swap		info;
+	s_stack	stack_a;
+	s_stack	stack_b;
+    char	*string;
+	if (argc == 1)
         error_msg();
 	info.size = argc - 1;
-    info.array = convert_args(info.size, argv);
-	duplicate_nambers(&info);
-	sorted_stack(&info);
-	stack_init(&info, &stack_a, &stack_b);
+	string = argv_to_string(argv);
+	ft_store_numbers(string, &stack_a, &stack_b);
 	if (stack_a.size == 2)
 		sort_2(&stack_a);
 	else if (stack_a.size == 3)
@@ -34,42 +75,23 @@ int main(int argc, char **argv)
 		sort_10(&stack_a, &stack_b);
 	else if (stack_a.size > 10)
 		sort_100(&stack_a, &stack_b);
-	// else if (stack_a.size > 100)
-	// 	sort_100(&stack_a, &stack_b);
-	/*********** testing *********/
-	// int i = -1;
-	// printf("----------------------\n");
-	// printf("A : |size = %d||used_size = %d|\n", stack_a.size, stack_a.used_size);
-	// printf("B : |size = %d||used_size = %d|\n", stack_b.size, stack_b.used_size);
-	// printf("--------stack A---------\n");
-	// while (++i < stack_a.size)
-	// 	printf("%d\n", stack_a.array[i]);
-	// printf("--------stack b---------\n");
-	// printf("%d\n", stack_b.array[0]);
-	// printf("%d\n", stack_b.array[1]);
-	// printf("%d\n", stack_b.array[2]);
-	// printf("%d\n", stack_b.array[3]);
-
-	/********** end of testing *******/
-	// free(info.array);
-	// free(stack_b.array);
-	/*********** leaks test **********/
-	// while(1)
+	else if (stack_a.size > 100)
+		sort_500(&stack_a, &stack_b);
+	free(info.array);
+	free(stack_b.array);
+	free(stack_a.array);
+	// while (1)
 	// {
-	// 	printf("1");
+	// 	printf(" ");
 	// }
-	/********** end of leak test *******/
 	return (0);
 }
 
-//parsing one argument that contain multi numbers
-// remove sorting 100 element algorithm
 // leaks
 // finish the project
 // norminette
 // optimize code
+// bonus
 // finish*******
-
-
 // middle chunk
 //sa | sb

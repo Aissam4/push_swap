@@ -6,7 +6,7 @@
 /*   By: abarchil <abarchil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 11:52:38 by abarchil          #+#    #+#             */
-/*   Updated: 2021/12/13 12:45:22 by abarchil         ###   ########.fr       */
+/*   Updated: 2021/12/17 08:03:29 by abarchil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@
 void	error_msg(void)
 {
 	ft_putstr("\033[0;31mERROR \n");
-    exit(EXIT_FAILURE);
+	exit(EXIT_FAILURE);
 }

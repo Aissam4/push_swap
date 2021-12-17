@@ -6,7 +6,7 @@
 /*   By: abarchil <abarchil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 19:17:45 by abarchil          #+#    #+#             */
-/*   Updated: 2021/12/10 12:50:36 by abarchil         ###   ########.fr       */
+/*   Updated: 2021/12/17 03:34:26 by abarchil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,13 @@ long long int	ft_atoi(const char *str)
 		if (str[i++] == '-')
 			signe = -1;
 	if (!(str[i] >= '0' && str[i] <= '9'))
-		return (0);
+		error_msg();
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		result = result * 10 + str[i] - '0';
 		i++;
 	}
+	if (!(str[i] >= '0' && str[i] <= '9') && str[i] != ' ' && str[i])
+		error_msg();
 	return (result * signe);
 }

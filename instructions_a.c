@@ -6,7 +6,7 @@
 /*   By: abarchil <abarchil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 12:31:43 by abarchil          #+#    #+#             */
-/*   Updated: 2021/12/15 15:22:08 by abarchil         ###   ########.fr       */
+/*   Updated: 2021/12/17 08:03:43 by abarchil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ void	rotate_a(s_stack *stack)
 	ft_putstr("ra\n");
 }
 
-
 void	reverse_rotate_a(s_stack *stack)
 {
 	int	tmp;
@@ -42,7 +41,6 @@ void	reverse_rotate_a(s_stack *stack)
 	stack->array[0] = tmp;
 	ft_putstr("rra\n");
 }
-
 
 void	push_a(s_stack *a, s_stack *b)
 {

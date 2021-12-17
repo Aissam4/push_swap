@@ -6,11 +6,12 @@
 /*   By: abarchil <abarchil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 13:21:01 by abarchil          #+#    #+#             */
-/*   Updated: 2021/12/15 22:52:22 by abarchil         ###   ########.fr       */
+/*   Updated: 2021/12/17 15:31:23 by abarchil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
 void	sort_rest_num(s_stack *a, s_stack *b)
 {
 	int	size;
@@ -52,14 +53,14 @@ void	sort_100(s_stack *a, s_stack *b)
 
 	i = 1;
 	sorted = simple_sort(a);
-	while (i != 2)
+	while (i != 25)
 	{
-		key = sorted[(a->size * i) / 2];
+		key = sorted[(a->size * i) / 25];
 		find_index_push(a, b, key);
 		i++;
 	}
 	free(sorted);
-	sort_remainder_2(a, b);
+	sort_remainder(a, b);
 	while (b->used_size != 0)
 	{
 		find_max_value(b);
@@ -79,7 +80,7 @@ void	sort_remainder_2(s_stack *a, s_stack *b)
 	else if (a->used_size == 5 || a->used_size == 4)
 		sort_5(a, b);
 	else if(a->used_size > 5 && a->used_size <= 10)
-		sort_rest_num(a, b);
+		sort_100(a, b);
 	else if (a->used_size > 10)
 		sort_100(a ,b);
 }
@@ -90,11 +91,11 @@ void	sort_500(s_stack *a, s_stack *b)
 	int		i;
 	int		key;
 
-	i = 1;
+	i = 0;
 	sorted = simple_sort(a);
-	while (i != 175)
+	while (i != 5)
 	{
-		key = sorted[(a->size * i) / 175];
+		key = sorted[(a->size * i) / 5];
 		find_index_push(a, b, key);
 		i++;
 	}

@@ -6,19 +6,19 @@
 /*   By: abarchil <abarchil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 23:44:54 by abarchil          #+#    #+#             */
-/*   Updated: 2021/12/15 20:42:31 by abarchil         ###   ########.fr       */
+/*   Updated: 2021/12/17 08:13:58 by abarchil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void		sort_2(s_stack *stack)
+void	sort_2(s_stack *stack)
 {
 	if (stack->array[0] > stack->array[1])
 		swap(stack);
 }
 
-void		sort_3(s_stack *stack)
+void	sort_3(s_stack *stack)
 {
 	if (stack->array[0] > stack->array[1] && stack->array[0] < stack->array[2] && stack->array[1] < stack->array[2])
 		swap(stack);

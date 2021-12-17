@@ -6,57 +6,27 @@
 /*   By: abarchil <abarchil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 16:47:16 by abarchil          #+#    #+#             */
-/*   Updated: 2021/12/15 13:48:03 by abarchil         ###   ########.fr       */
+/*   Updated: 2021/12/17 15:15:55 by abarchil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	int_check(char *s)
+char	*argv_to_string(char **av)
 {
-	int	i;
-	
-	i = 0;
-	while (s[i])
+	char	*string;
+	char	*tmp;
+	int		i;
+
+	i = 1;
+	string = (char *)malloc(1);
+	while (av[i])
 	{
-		if (s[i] == '-')
-			i++;
-		if (!ft_isdigit(s[i]))
-			return (0);
+		tmp = ft_strjoin(string, av[i]);
+		string = ft_strjoin(tmp, " ");
 		i++;
 	}
-	return (1);
-}
-
-int    *convert_args(int argc, char **argv)
-{
-    int     		count;
-	long long int	test;
-    int				argv_count;
-	int     		*array;
-
-    count = 0;
-	argv_count = 0;
-    array = (int *)malloc(sizeof(int) * argc);
-	while (argv[++argv_count])
-    {
-		if (!int_check(argv[argv_count]))
-		{
-			error_msg();
-			free(array);
-			exit(EXIT_FAILURE);
-		}
-        test = ft_atoi(argv[argv_count]);
-		if (test > INT_MAX || test  < INT_MIN)
-		{
-			error_msg();
-			free(array);
-			exit(EXIT_FAILURE);
-		}
-		array[count] = (int)test;
-		count++;
-    }
-	return (array);
+	return (string);
 }
 
 int		check_duplicated(int size, int *array, int number)
@@ -73,7 +43,7 @@ int		check_duplicated(int size, int *array, int number)
 	return (0);
 }
 
-void		duplicate_nambers(s_swap *stack)
+void	duplicate_nambers(s_stack *stack)
 {
 	int	i;
 	int	j;
@@ -92,8 +62,8 @@ void		duplicate_nambers(s_swap *stack)
 		j++;
 		if (check_duplicated(j, number, stack->array[i]))
 		{
-			free(stack->array);
-			free(stack);
+			//free(stack->array);
+			//free(stack);
 			error_msg();
 			exit(EXIT_FAILURE);
 		}
@@ -101,19 +71,41 @@ void		duplicate_nambers(s_swap *stack)
 	}
 }
 
-void	sorted_stack(s_swap *stack)
+int	ft_isnumber(char *number)
 {
 	int	i;
-	int	j;
 
-	j = 0;
 	i = 0;
-	while ((stack->array[i] < stack->array[i + 1]) && i < stack->size - 1)
+	if (number[i] == '-')
 		i++;
-	if (i == stack->size - 1)
+	while (number[i])
 	{
-		// free(stack->array);
-		// free(stack);
-		exit(EXIT_FAILURE);
+		if (!ft_isdigit(number[i]))
+			return (0);
+		i++;
 	}
+	return (1);
+}
+
+int	ft_count_numbers(char *string)
+{
+	int	i;
+	int	count;
+
+	i = 0;
+	count = 0;
+	while (string[i])
+	{
+		if (string[i] == ' ')
+		{
+			if (string[i + 1] == ' ')
+			{
+				while (string[i] == ' ')
+					i++;
+			}
+			count++;
+		}
+		i++;
+	}
+	return (count);
 }

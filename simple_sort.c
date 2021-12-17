@@ -6,7 +6,7 @@
 /*   By: abarchil <abarchil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 21:06:04 by abarchil          #+#    #+#             */
-/*   Updated: 2021/12/15 15:29:11 by abarchil         ###   ########.fr       */
+/*   Updated: 2021/12/17 08:12:51 by abarchil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,14 @@
 
 void	swap_ptr(int *a, int *b)
 {
-	int tmp;
+	int	tmp;
+
 	tmp = *a;
 	*a = *b;
 	*b = tmp;
 }
 
-int		*simple_sort(s_stack *stack)
+int	*simple_sort(s_stack *stack)
 {
 	int		*sorted;
 	int		i;
@@ -50,7 +51,7 @@ int		*simple_sort(s_stack *stack)
 int	search_for_index(s_stack *stack, int key)
 {
 	int	i;
-	
+
 	i = 0;
 	while (i < stack->used_size)
 	{
