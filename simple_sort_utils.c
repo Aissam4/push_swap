@@ -6,13 +6,13 @@
 /*   By: abarchil <abarchil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 13:26:47 by abarchil          #+#    #+#             */
-/*   Updated: 2021/12/15 13:28:10 by abarchil         ###   ########.fr       */
+/*   Updated: 2021/12/18 00:00:26 by abarchil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		max_value(s_stack *stack)
+int	max_value(t_stack *stack)
 {
 	int	i;
 	int	index;
@@ -28,7 +28,7 @@ int		max_value(s_stack *stack)
 	return (index);
 }
 
-void	find_max_value(s_stack *stack)
+void	find_max_value(t_stack *stack)
 {
 	int	index;
 
@@ -36,9 +36,9 @@ void	find_max_value(s_stack *stack)
 	while (index != 0)
 	{
 		if (index <= (stack->used_size / 2))
-			rotate_b(stack);
+			rotate_b(stack, 1);
 		else
-			reverse_rotate_b(stack);
+			reverse_rotate_b(stack, 1);
 		index = max_value(stack);
 	}
 }

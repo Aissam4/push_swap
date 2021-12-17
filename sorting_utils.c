@@ -6,15 +6,15 @@
 /*   By: abarchil <abarchil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 12:28:47 by abarchil          #+#    #+#             */
-/*   Updated: 2021/12/15 15:39:54 by abarchil         ###   ########.fr       */
+/*   Updated: 2021/12/18 00:01:36 by abarchil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push_stack(s_stack *stack)
+void	push_stack(t_stack *stack)
 {
-	int 	used_size;
+	int	used_size;
 
 	used_size = stack->used_size;
 	while (used_size > 0)
@@ -24,7 +24,7 @@ void	push_stack(s_stack *stack)
 	}
 }
 
-void	pop_stack(s_stack *stack)
+void	pop_stack(t_stack *stack)
 {
 	int	i;
 	int	used_size;
@@ -38,7 +38,7 @@ void	pop_stack(s_stack *stack)
 	}
 }
 
-int		min_value(s_stack *stack)
+int	min_value(t_stack *stack)
 {
 	int	i;
 	int	s_index;
@@ -54,7 +54,7 @@ int		min_value(s_stack *stack)
 	return (s_index);
 }
 
-void	find_smallest_number(s_stack *stack, int i)
+void	find_smallest_number(t_stack *stack, int i)
 {
 	int	s_index;
 
@@ -62,14 +62,14 @@ void	find_smallest_number(s_stack *stack, int i)
 	while (s_index != 0)
 	{
 		if (s_index <= i)
-			rotate_a(stack);
+			rotate_a(stack, 1);
 		else
-			reverse_rotate_a(stack);
+			reverse_rotate_a(stack, 1);
 		s_index = min_value(stack);
 	}
 }
 
-int	ft_issorted(s_stack *stack)
+int	ft_issorted(t_stack *stack)
 {
 	int	i;
 	int	*tmp;

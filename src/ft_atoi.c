@@ -6,7 +6,7 @@
 /*   By: abarchil <abarchil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 19:17:45 by abarchil          #+#    #+#             */
-/*   Updated: 2021/12/17 03:34:26 by abarchil         ###   ########.fr       */
+/*   Updated: 2021/12/17 16:35:54 by abarchil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 long long int	ft_atoi(const char *str)
 {
-	int	i;
-	int	signe;
+	int				i;
+	int				signe;
 	long long int	result;
 
 	i = 0;

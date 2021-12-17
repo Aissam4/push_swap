@@ -6,43 +6,46 @@
 /*   By: abarchil <abarchil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 12:31:43 by abarchil          #+#    #+#             */
-/*   Updated: 2021/12/17 08:03:43 by abarchil         ###   ########.fr       */
+/*   Updated: 2021/12/17 23:58:14 by abarchil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap(s_stack *stack)
+void	swap(t_stack *stack, int print)
 {
 	int	tmp;
 
 	tmp = stack->array[0];
 	stack->array[0] = stack->array[1];
 	stack->array[1] = tmp;
-	ft_putstr("sa\n");
+	if (print == 1)
+		ft_putstr("sa\n");
 }
 
-void	rotate_a(s_stack *stack)
+void	rotate_a(t_stack *stack, int print)
 {
 	int	tmp;
 
 	tmp = stack->array[0];
 	pop_stack(stack);
 	stack->array[stack->used_size - 1] = tmp;
-	ft_putstr("ra\n");
+	if (print == 1)
+		ft_putstr("ra\n");
 }
 
-void	reverse_rotate_a(s_stack *stack)
+void	reverse_rotate_a(t_stack *stack, int print)
 {
 	int	tmp;
 
 	tmp = stack->array[stack->used_size - 1];
 	push_stack(stack);
 	stack->array[0] = tmp;
-	ft_putstr("rra\n");
+	if (print == 1)
+		ft_putstr("rra\n");
 }
 
-void	push_a(s_stack *a, s_stack *b)
+void	push_a(t_stack *a, t_stack *b, int print)
 {
 	int	used_size_b;
 	int	used_size_a;
@@ -51,7 +54,8 @@ void	push_a(s_stack *a, s_stack *b)
 	i = 0;
 	used_size_b = b->used_size;
 	used_size_a = a->used_size;
-	ft_putstr("pa\n");
+	if (print == 1)
+		ft_putstr("pa\n");
 	if (used_size_b == 0)
 		return ;
 	if (used_size_a == 0)

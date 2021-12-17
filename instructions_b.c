@@ -6,33 +6,35 @@
 /*   By: abarchil <abarchil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 12:15:58 by abarchil          #+#    #+#             */
-/*   Updated: 2021/12/15 12:16:48 by abarchil         ###   ########.fr       */
+/*   Updated: 2021/12/17 23:58:45 by abarchil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rotate_b(s_stack *b)
+void	rotate_b(t_stack *b, int print)
 {
 	int	tmp;
 
 	tmp = b->array[0];
 	pop_stack(b);
 	b->array[b->used_size - 1] = tmp;
-	ft_putstr("rb\n");
+	if (print == 1)
+		ft_putstr("rb\n");
 }
 
-void	reverse_rotate_b(s_stack *b)
+void	reverse_rotate_b(t_stack *b, int print)
 {
 	int	tmp;
 
 	tmp = b->array[b->used_size - 1];
 	push_stack(b);
 	b->array[0] = tmp;
-	ft_putstr("rrb\n");
+	if (print == 1)
+		ft_putstr("rrb\n");
 }
 
-void	push_b(s_stack *a, s_stack *b)
+void	push_b(t_stack *a, t_stack *b, int print)
 {
 	int	used_size_b;
 	int	used_size_a;
@@ -53,5 +55,6 @@ void	push_b(s_stack *a, s_stack *b)
 	pop_stack(a);
 	b->used_size++;
 	a->used_size--;
-	ft_putstr("pb\n");
+	if (print == 1)
+		ft_putstr("pb\n");
 }

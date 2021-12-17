@@ -6,39 +6,44 @@
 /*   By: abarchil <abarchil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 23:44:54 by abarchil          #+#    #+#             */
-/*   Updated: 2021/12/17 08:13:58 by abarchil         ###   ########.fr       */
+/*   Updated: 2021/12/18 00:02:18 by abarchil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_2(s_stack *stack)
+void	sort_2(t_stack *stack)
 {
 	if (stack->array[0] > stack->array[1])
-		swap(stack);
+		swap(stack, 1);
 }
 
-void	sort_3(s_stack *stack)
+void	sort_3(t_stack *stack)
 {
-	if (stack->array[0] > stack->array[1] && stack->array[0] < stack->array[2] && stack->array[1] < stack->array[2])
-		swap(stack);
-	else if (stack->array[0] > stack->array[1] && stack->array[1] > stack->array[2])
+	if (stack->array[0] > stack->array[1] && \
+	stack->array[0] < stack->array[2] && stack->array[1] < stack->array[2])
+		swap(stack, 1);
+	else if (stack->array[0] > stack->array[1] && \
+	stack->array[1] > stack->array[2])
 	{
-		swap(stack);
-		reverse_rotate_a(stack);
+		swap(stack, 1);
+		reverse_rotate_a(stack, 1);
 	}
-	else if(stack->array[0] > stack->array[1] && stack->array[0] > stack->array[2] && stack->array[1] < stack->array[2])
-		rotate_a(stack);
-	else if (stack->array[0] < stack->array[1] && stack->array[1] > stack->array[2] && stack->array[0] < stack->array[2])
+	else if (stack->array[0] > stack->array[1] && \
+	stack->array[0] > stack->array[2] && stack->array[1] < stack->array[2])
+		rotate_a(stack, 1);
+	else if (stack->array[0] < stack->array[1] && \
+	stack->array[1] > stack->array[2] && stack->array[0] < stack->array[2])
 	{
-		swap(stack);
-		rotate_a(stack);
+		swap(stack, 1);
+		rotate_a(stack, 1);
 	}
-	else if (stack->array[0] < stack->array[1] && stack->array[1] > stack->array[2] && stack->array[0] > stack->array[2])
-		reverse_rotate_a(stack);
+	else if (stack->array[0] < stack->array[1] && \
+	stack->array[1] > stack->array[2] && stack->array[0] > stack->array[2])
+		reverse_rotate_a(stack, 1);
 }
 
-void	sort_5(s_stack *stack, s_stack *b)
+void	sort_5(t_stack *stack, t_stack *b)
 {
 	int	i;
 
@@ -48,35 +53,35 @@ void	sort_5(s_stack *stack, s_stack *b)
 		if (stack->used_size == 5)
 		{
 			find_smallest_number(stack, 2);
-			push_b(stack, b);
+			push_b(stack, b, 1);
 			i++;
 		}
 		if (stack->used_size == 4)
 		{
 			find_smallest_number(stack, 2);
-			push_b(stack, b);
+			push_b(stack, b, 1);
 			i++;
 		}
 		sort_3(stack);
 		while (i > 0)
 		{
-			push_a(stack, b);
+			push_a(stack, b, 1);
 			i--;
 		}
 	}
 }
 
-void	sort_10(s_stack *a, s_stack *b)
+void	sort_10(t_stack *a, t_stack *b)
 {
 	if (!ft_issorted(a))
 	{
 		while (a->used_size != 5)
 		{
 			find_smallest_number(a, 5);
-			push_b(a, b);
+			push_b(a, b, 1);
 		}
 		sort_5(a, b);
 		while (a->used_size != a->size)
-			push_a(a,b);
+			push_a(a, b, 1);
 	}
 }

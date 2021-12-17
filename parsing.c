@@ -6,7 +6,7 @@
 /*   By: abarchil <abarchil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 16:47:16 by abarchil          #+#    #+#             */
-/*   Updated: 2021/12/17 15:15:55 by abarchil         ###   ########.fr       */
+/*   Updated: 2021/12/17 16:21:35 by abarchil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*argv_to_string(char **av)
 	return (string);
 }
 
-int		check_duplicated(int size, int *array, int number)
+int	check_duplicated(int size, int *array, int number)
 {
 	int	i;
 
@@ -43,13 +43,14 @@ int		check_duplicated(int size, int *array, int number)
 	return (0);
 }
 
-void	duplicate_nambers(s_stack *stack)
+void	duplicate_nambers(t_stack *stack)
 {
 	int	i;
 	int	j;
 	int	*number;
-	int	size = stack->size;
+	int	size;
 
+	size = stack->size;
 	number = (int *)malloc(sizeof(int) * size);
 	if (!number)
 		return ;
@@ -62,8 +63,6 @@ void	duplicate_nambers(s_stack *stack)
 		j++;
 		if (check_duplicated(j, number, stack->array[i]))
 		{
-			//free(stack->array);
-			//free(stack);
 			error_msg();
 			exit(EXIT_FAILURE);
 		}

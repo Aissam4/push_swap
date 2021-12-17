@@ -6,7 +6,7 @@
 /*   By: abarchil <abarchil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 21:06:04 by abarchil          #+#    #+#             */
-/*   Updated: 2021/12/17 08:12:51 by abarchil         ###   ########.fr       */
+/*   Updated: 2021/12/18 00:00:49 by abarchil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	swap_ptr(int *a, int *b)
 	*b = tmp;
 }
 
-int	*simple_sort(s_stack *stack)
+int	*simple_sort(t_stack *stack)
 {
 	int		*sorted;
 	int		i;
@@ -48,7 +48,7 @@ int	*simple_sort(s_stack *stack)
 	return (sorted);
 }
 
-int	search_for_index(s_stack *stack, int key)
+int	search_for_index(t_stack *stack, int key)
 {
 	int	i;
 
@@ -62,21 +62,21 @@ int	search_for_index(s_stack *stack, int key)
 	return (-1);
 }
 
-void	push_to_top(s_stack *stack, int index)
+void	push_to_top(t_stack *stack, int index)
 {
-	int div;
+	int	div;
 
 	div = stack->used_size / 2;
 	while (index != 0)
 	{
 		if (index <= div)
 		{
-			rotate_a(stack);
+			rotate_a(stack, 1);
 			index--;
 		}
 		else
 		{
-			reverse_rotate_a(stack);
+			reverse_rotate_a(stack, 1);
 			index++;
 			if (index == stack->used_size)
 				break ;
@@ -84,15 +84,15 @@ void	push_to_top(s_stack *stack, int index)
 	}
 }
 
-void	find_index_push(s_stack *a, s_stack *b, int key)
+void	find_index_push(t_stack *a, t_stack *b, int key)
 {
-	int index;
+	int	index;
 
 	index = search_for_index(a, key);
 	while (index != -1)
 	{
 		push_to_top(a, index);
-		push_b(a,b);
+		push_b(a, b, 1);
 		index = search_for_index(a, key);
 	}
 }
