@@ -6,7 +6,7 @@
 /*   By: abarchil <abarchil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 17:24:51 by abarchil          #+#    #+#             */
-/*   Updated: 2021/12/17 18:32:18 by abarchil         ###   ########.fr       */
+/*   Updated: 2021/12/18 01:07:28 by abarchil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,11 @@ void	ft_store_numbers(char *string, t_stack *a, t_stack *b)
 {
 	char		**numbers;
 	long long	number;
+	int			len;
 	int			i;
 
-	i = 0;
 	numbers = stacks_init(string, a, b);
-	int len;
+	i = 0;
 	len = 0;
 	while (numbers[len])
 		len++;

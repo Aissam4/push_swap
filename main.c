@@ -6,7 +6,7 @@
 /*   By: abarchil <abarchil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 11:23:55 by abarchil          #+#    #+#             */
-/*   Updated: 2021/12/17 23:55:04 by abarchil         ###   ########.fr       */
+/*   Updated: 2021/12/18 01:02:12 by abarchil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,3 @@ int	main(int argc, char **argv)
 		sort_500(&stack_a, &stack_b);
 	return (free(stack_b.array), free(stack_a.array), 0);
 }
-// leaks
-// info struct unuesd

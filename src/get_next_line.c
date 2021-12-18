@@ -6,11 +6,12 @@
 /*   By: abarchil <abarchil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 05:02:29 by abarchil          #+#    #+#             */
-/*   Updated: 2021/12/17 18:55:37 by abarchil         ###   ########.fr       */
+/*   Updated: 2021/12/18 01:08:12 by abarchil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
 char	*ft_strdup(char *str)
 {
 	int		count;

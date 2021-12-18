@@ -6,11 +6,23 @@
 /*   By: abarchil <abarchil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 12:15:58 by abarchil          #+#    #+#             */
-/*   Updated: 2021/12/17 23:58:45 by abarchil         ###   ########.fr       */
+/*   Updated: 2021/12/18 00:40:57 by abarchil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	reverse_rotate_a_b(t_stack *a, t_stack *b)
+{
+	reverse_rotate_a(a, 0);
+	reverse_rotate_b(b, 0);
+}
+
+void	rotate_a_b(t_stack *a, t_stack *b)
+{
+	rotate_a(a, 0);
+	rotate_b(b, 0);
+}
 
 void	rotate_b(t_stack *b, int print)
 {
